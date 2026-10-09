@@ -1,0 +1,17 @@
+{
+  "lookback": 60,
+  "features": [
+    "SMA_10",
+    "SMA_20",
+    "EMA_10",
+    "RSI",
+    "MACD",
+    "MACD_S",
+    "BB_WD",
+    "Ret_1d",
+    "ATR"
+  ],
+  "threshold": 0.52,
+  "trained_on": "2018-01-01 to 2022-12-31",
+  "test_accuracy": 0.4865350127220154
+}
