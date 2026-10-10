@@ -32,7 +32,7 @@ Improved the Day 1 EUR/USD MLP by implementing advanced regularization, automate
 **Requirements:** Python 3.10–3.13.
 
 
-## LSTM : Long short term Memory
+## Deep Learning LSTM : Long short term Memory
 
 Developed an **LSTM neural network** to predict the next-day EUR/USD price direction using 60-day historical sequences, with a production-ready inference pipeline.
 
@@ -52,7 +52,7 @@ pip install tensorflow yfinance pandas-ta scikit-learn matplotlib joblib
 
 
 
-## EUR/USD Closing Price Prediction — Linear Regression
+## EUR/USD Closing Price Prediction — Machine Learning : Linear Regression
 
 Developed a Machine Learning pipeline to predict the next-day EUR/USD closing price using **Linear Regression** and historical Forex data from MetaTrader 5.
 
@@ -69,3 +69,90 @@ Developed a Machine Learning pipeline to predict the next-day EUR/USD closing pr
 ```bash
 pip install MetaTrader5 pandas numpy scikit-learn
 ```
+
+## EUR/USD Market Direction Classification — Machine Learning: Logistic Regression
+
+Developed a Machine Learning pipeline to predict the next-day EUR/USD market direction (up or down) using **Logistic Regression** and historical Forex data from MetaTrader 5.
+
+* **Data Acquisition:** Historical daily price data via the MetaTrader 5 Python API.
+* **Feature Engineering:** Technical indicators such as SMA, RSI, and volatility features.
+* **Preprocessing:** Data cleaning, chronological train-test split, and feature standardization using Scikit-learn.
+* **Modeling:** Binary classification using Scikit-learn Logistic Regression.
+* **Evaluation:** Accuracy, Precision, Recall, F1-score, confusion matrix, and ROC-AUC.
+* **Objective:** Identify next-day market direction while preventing data leakage.
+
+**Technologies:** Python, MetaTrader 5, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn.
+
+### Installation
+
+```bash
+pip install MetaTrader5 pandas numpy scikit-learn matplotlib seaborn
+```
+## EUR/USD Market Direction Classification — Decision Tree
+Developed a Machine Learning pipeline to predict the next-day EUR/USD market direction (up or down) using a **Decision Tree Classifier** and historical daily Forex data.
+
+* **Data Acquisition:** Historical EUR/USD data from Yahoo Finance or MetaTrader 5.
+* **Feature Engineering:** Technical indicators for trend, momentum, and volatility.
+* **Modeling:** Decision Tree classification to capture non-linear relationships.
+* **Evaluation:** Accuracy, Precision, Recall, F1-score, and confusion matrix.
+* **Objective:** Predict next-day market direction using interpretable decision rules.
+
+**Technologies:** Python, Pandas, NumPy, Scikit-learn, yfinance, MetaTrader 5.
+
+**Installation**
+
+```bash
+pip install yfinance MetaTrader5 scikit-learn pandas numpy
+```
+
+## EUR/USD Market Direction Classification — Random Forest
+
+Developed a Machine Learning pipeline to classify the next-day EUR/USD market direction using a **Random Forest Classifier** trained on historical daily Forex data.
+
+* **Data Acquisition:** Historical EUR/USD prices from Yahoo Finance or MetaTrader 5.
+* **Feature Engineering:** Technical indicators to identify trends, momentum, and volatility.
+* **Modeling:** Random Forest ensemble combining multiple decision trees to improve prediction stability.
+* **Evaluation:** Accuracy, Precision, Recall, F1-score, and ROC-AUC.
+* **Objective:** Evaluate ensemble learning for next-day market direction prediction.
+
+**Technologies:** Python, Pandas, NumPy, Scikit-learn, yfinance, MetaTrader 5.
+
+**Installation**
+
+```bash
+pip install yfinance MetaTrader5 scikit-learn pandas numpy
+```
+## EUR/USD Market Direction Classification — XGBoost
+Developed a Machine Learning pipeline to predict the next-day EUR/USD market direction using **XGBoost**, a gradient-boosting algorithm, and historical daily Forex data.
+
+* **Data Acquisition:** Historical EUR/USD market data from Yahoo Finance or MetaTrader 5.
+* **Feature Engineering:** Technical indicators and price-based features.
+* **Modeling:** XGBoost classification to learn complex non-linear relationships.
+* **Evaluation:** Accuracy, Precision, Recall, F1-score, and ROC-AUC.
+* **Objective:** Assess gradient boosting for daily EUR/USD direction classification.
+
+**Technologies:** Python, Pandas, NumPy, Scikit-learn, XGBoost, yfinance, MetaTrader 5.
+
+**Installation**
+
+```bash
+pip install yfinance MetaTrader5 scikit-learn xgboost pandas numpy
+```
+## EUR/USD Market Direction Classification — Support Vector Machine (SVM)
+Developed a Machine Learning pipeline to classify the next-day EUR/USD market direction using a **Support Vector Classifier (SVC)** with an RBF kernel and historical daily Forex data.
+
+* **Data Acquisition:** Historical EUR/USD prices from Yahoo Finance or MetaTrader 5.
+* **Feature Engineering:** Technical indicators for trend, momentum, and volatility.
+* **Preprocessing:** Feature standardization using `StandardScaler` within a leakage-safe pipeline.
+* **Modeling:** SVM with an RBF kernel to capture non-linear decision boundaries.
+* **Evaluation:** Accuracy, Precision, Recall, F1-score, and ROC-AUC.
+* **Objective:** Investigate SVM performance in next-day market direction classification.
+
+**Technologies:** Python, Pandas, NumPy, Scikit-learn, yfinance, MetaTrader 5.
+
+**Installation**
+
+```bash
+pip install yfinance MetaTrader5 scikit-learn pandas numpy
+```
+
