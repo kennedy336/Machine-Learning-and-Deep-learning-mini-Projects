@@ -155,4 +155,66 @@ Developed a Machine Learning pipeline to classify the next-day EUR/USD market di
 ```bash
 pip install yfinance MetaTrader5 scikit-learn pandas numpy
 ```
+# TP / Exercice : Apprentissage par Renforcement appliqué au Trading (EUR/USD)
 
+Ce notebook présente une initiation à l'utilisation de l'**Apprentissage par Renforcement (RL)** pour élaborer une stratégie de trading automatisée sur la paire de devises **EUR/USD**.
+
+---
+
+## 📋 Objectif du Projet
+L'objectif est d'entraîner un agent autonome à prendre des décisions d'investissement optimales (Acheter, Vendre, Attendre) afin de maximiser le profit cumulé (P&L) tout en minimisant les coûts de transaction.
+
+L'exercice compare deux approches classiques :
+1. **Q-Learning Tabulaire** : Utilise une discrétisation de l'état (rendements récents de l'actif) pour stocker les valeurs Q dans une table.
+2. **Deep Q-Network (DQN)** : Utilise un réseau de neurones artificiels (`PyTorch`) pour approximer la fonction de valeur Q dans des espaces d'états continus.
+
+---
+
+## Rienforcement Learning for Trading
+
+### 1. L'Environnement (`TradingEnv`)
+Un environnement de trading sur mesure et simplifié qui suit le formalisme d'un processus de décision de Markov (MDP) :
+*   **Espace d'États (State)** : Une fenêtre glissante de rendements récents de l'actif combinée avec la position actuelle de l'agent (0 pour Cash, 1 pour Long).
+*   **Espace d'Actions (Actions)** : 
+    *   `0` : Conserver la position actuelle (Hold / Wait)
+    *   `1` : Acheter (Buy - si la position actuelle est Cash)
+    *   `2` : Vendre (Sell - si la position actuelle est Long)
+*   **Récompense (Reward)** : Le profit et perte (P&L) réel généré par la variation du prix de l'actif (valorisation Mark-to-Market), diminué des frais de transaction (`cost = 0.001` par transaction).
+
+### 2. Algorithme 1 : Q-Learning Tabulaire
+*   Les rendements continus sont convertis en catégories discrètes (Baisse, Stable, Hausse) via une fonction de numérisation (`np.digitize`).
+*   Mise à jour de la table Q par l'équation de Bellman classique.
+
+### 3. Algorithme 2 : Deep Q-Network (DQN)
+*   Utilisation de réseaux de neurones profonds (`policy_net` & `target_net`) pour estimer les Q-valeurs directement à partir d'états continus.
+*   Mécanisme d'**Experience Replay** (avec un buffer) pour casser la corrélation temporelle des échantillons.
+*   Stratégie d'exploration $\epsilon$-greedy avec décroissance temporelle de l'exploration.
+
+# Fine-Tuning DistilBERT for FOMC Stance Detection
+
+This exercise demonstrates how to fine-tune `distilbert-base-uncased` to classify Federal Reserve (FOMC) sentences into 4 stances: **Hawkish**, **Dovish**, **Neutral**, or **Irrelevant**.
+
+## Quick Specifications
+* **Dataset**: `gtfintechlab/federal_reserve_system` (subset `5768`)
+* **Target (`CIBLE`)**: `stance_label`
+* **Model**: DistilBERT sequence classifier (66M parameters)
+* **Metrics**: Accuracy & Macro F1-score
+
+## Workflow
+1. **Data Preprocessing**: Map text labels to integers and tokenize sentences up to 128 tokens.
+2. **Training Setup**: Fine-tune with a learning rate of `2e-5`, batch size of 16, for up to 8 epochs with early stopping (patience of 2 on F1 metric).
+3. **Evaluation**: Compare performance against a majority-class baseline.
+
+## Key Results
+* **Model Accuracy**: **56.0%**
+* **Model Macro F1**: **0.570** 
+* **Baseline Macro F1**: **0.132** (The model significantly outperforms the baseline)
+
+### Metrics Breakdown
+
+| Class | Precision | Recall | F1-Score | Support |
+| :--- | :--- | :--- | :--- | :--- |
+| **Dovish** | 0.567 | 0.630 | 0.596 | 54 |
+| **Hawkish** | 0.605 | 0.535 | 0.568 | 43 |
+| **Irrelevant** | 0.667 | 0.571 | 0.615 | 7 |
+| **Neutral** | 0.500 | 0.500 | 0.500 | 46 |
