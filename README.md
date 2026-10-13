@@ -155,20 +155,6 @@ Developed a Machine Learning pipeline to classify the next-day EUR/USD market di
 ```bash
 pip install yfinance MetaTrader5 scikit-learn pandas numpy
 ```
-# TP / Exercice : Apprentissage par Renforcement appliqué au Trading (EUR/USD)
-
-Ce notebook présente une initiation à l'utilisation de l'**Apprentissage par Renforcement (RL)** pour élaborer une stratégie de trading automatisée sur la paire de devises **EUR/USD**.
-
----
-
-## 📋 Objectif du Projet
-L'objectif est d'entraîner un agent autonome à prendre des décisions d'investissement optimales (Acheter, Vendre, Attendre) afin de maximiser le profit cumulé (P&L) tout en minimisant les coûts de transaction.
-
-L'exercice compare deux approches classiques :
-1. **Q-Learning Tabulaire** : Utilise une discrétisation de l'état (rendements récents de l'actif) pour stocker les valeurs Q dans une table.
-2. **Deep Q-Network (DQN)** : Utilise un réseau de neurones artificiels (`PyTorch`) pour approximer la fonction de valeur Q dans des espaces d'états continus.
-
----
 
 ## Rienforcement Learning for Trading
 
