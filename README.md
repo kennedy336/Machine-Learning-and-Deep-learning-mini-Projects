@@ -204,3 +204,14 @@ This exercise demonstrates how to fine-tune `distilbert-base-uncased` to classif
 | **Hawkish** | 0.605 | 0.535 | 0.568 | 43 |
 | **Irrelevant** | 0.667 | 0.571 | 0.615 | 7 |
 | **Neutral** | 0.500 | 0.500 | 0.500 | 46 |
+
+# 🚀 LLM Engineering — AWS Bedrock, LangChain, LlamaIndex & Vector DBs
+
+Ce dépôt contient l'ensemble des scripts de formation professionnelle et de mise en pratique pour concevoir, évaluer et sécuriser des applications orientées LLM et RAG (Retrieval-Augmented Generation) sur **Amazon Bedrock** (avec le modèle **Amazon Nova Lite** et **Titan Embeddings**).
+
+## 🛠️ Pré-requis & Installation
+
+1. **Python 3.10+**
+2. **AWS CLI configurée** avec les accès nécessaires :
+   ```bash
+   aws configure
